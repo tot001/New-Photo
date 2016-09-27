@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ITM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script type="text/javascript" src="{% static "js/jquery-3.1.0.js"%}"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static "css/men.css"%}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/jquery.bxslider.css"%}">
+	<script type="text/javascript" src="{% static "js/men.js"%}"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.js"></script>
+	
+</head>
+	<script type="text/javascript" src="{% static "js/jquery.bxslider.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jquery.lazyload.js" %}"></script>
+	<script src="{% static "js/dynamics.js" %}"></script>
+	<script src="{% static "js/minigrid.js" %}"></script>
+<body >
+<div class="main">
+	
+	
+<div class="home_img"></div>
+	
+
+
+	<div class="head">
+		<div class="head-s">
+			<div id="unfold">
+				<a class="flatbtn" href="#">
+					<i></i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<nav id="nav" role="navigation">
+			<p><i class="icon_se"></i>搜索美照</p>
+			<p><i class="icon_up"></i>上传美照</p>
+		</a>
+	</nav>
+	<!--<div id="menus_header" class="auto">-->
+		<!--<div id="seracn">-->
+			<!--<form action="/search" method="get" class="ks">-->
+				<!--<input type="search" class="keywork" name="user_search" placeholder="输入班级或姓名">-->
+				<!--<input type="submit" value="" class="btn" >-->
+			<!--</form>-->
+		<!--</div>-->
+	<!--</div>-->
+
+
+	<div class="cover" >
+		<div class="slider1" >
+			<div class="slide"><a href="/upload"><img src="static/images/banner2.jpg" alt=""></a></div>
+			<div class="slide"><a href="check"><img src="static/images/banner1.png" alt=""></a></div>
+			<div class="slide"><img src="static/images/banner1.png" alt=""></div>
+		</div>
+	</div>
+	<script>
+	$('.slider1').bxSlider({
+        slideWidth: $('.cover').width(),
+        minSlides: 1,
+        maxSlides: 1,
+        slideMargin: 1,
+		hideControlOnEnd: true,
+		adaptiveHeight: true,
+		startSlides: 0
+    });
+	</script>
+
+
+
+
+
+
+<div id="tab">
+        <ul id="tab-hd">
+            <ol class="tab-hd-con tab-active">爆赞榜</ol>
+            <ol class="tab-hd-con tca ">最新</ol>
+        </ul>
+
+
+
+	<div class="widget-photos" >
+		<ul class="list_s">
+			{% for i in l3 %}
+			{% for x in i %}
+			{% if x.username %}
+
+			<li class="">
+
+				<a>
+					<img  id="zimg{{ x.id }}" class="iload lazy " data-original="{{ x.headImg }}" src="{{ x.headImg }}"></img>
+					<h3 class="img-name">{{ x.kap }}{{ x.C_lass }} {{ x.username }}</h3>
+				</a>
+				{% endif %}
+				{% if x.index %}
+
+				<!--<div class="Ans">-->
+				<!--<a>-->
+				<!--<input id="zan{{ x.index }}" type="submit" class="zan" name="zan" value=""/>-->
+				<!--<tt>{{ x.zan }}</tt>-->
+				<!--</a>-->
+
+				<!--<a>-->
+				<!--<input id="cai{{ x.index }}" type="submit" class="cai" name="cai" value=""/>-->
+				<!--<tt>{{ x.cai }}</tt>-->
+				<!--</a>-->
+				<!--</div>-->
+
+			</li>
+			{% endif %}
+
+			{% endfor %}
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="widget-photos" id="wp" style="display: none">
+		<ul class="list grid">
+
+        </ul>
+
+		<div class="bot"></div>
+	</div>
+
+
+	<div id="lean_overlay" >
+		<div class="car_view">
+			<img id="car_img" src="" alt="">
+		</div>
+	</div>
+
+
+
+
+	
+
+</div>
+	
+
+
+	<!--<div class="food">-->
+		<!--<label for="">CopyRight@2016-2017</label>-->
+		<!--<div class="dtop">-->
+			<!--<a href="#" class="gtop"><i></i></a>-->
+		<!--</div>-->
+	<!--</div>-->
+
+
+
+</div>
+
+
+
+</body>
+</html>

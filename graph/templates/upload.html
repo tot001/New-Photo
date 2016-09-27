@@ -1,0 +1,61 @@
+{%load static%}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Upload</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="{% static "css/upload.css"%}">
+	<link rel="stylesheet" href="{% static "css/men.css"%}">
+	<script src="{% static "js/upload.js"%}"></script>
+</head>
+
+<body>
+<div class="main">
+	<div class="up-head">
+	    <a href="/"><i class="back_link"></i></a>
+	</div>
+
+	<div class="Atlas_title"><h5>UPLOAD US</h5></div>
+
+	<div class="Atlas">
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+		<div>
+		<a href="" class="btn_a">
+			{{ db.headImg }}
+			<i class="plus"></i>
+		</a>
+		</div>
+
+		<div class="user_list">
+				{{ db.username }}
+				{{ db.C_lass }}
+				{{ db.kap }}
+                <input type="submit" value="ok" class="tijiao" />
+		</div>
+		</form>
+	</div>
+
+
+	<div class="up_food">
+	<p>传前必看</p>
+	<hr/>
+	<ul class="food_point">
+		<li>每个人图片更新后短期内不接受<b>二次</b>更新,请谨慎选图上传;</li>
+		<li>请上传和班级姓名相匹配的照片,否则审核将<tt>不通过</tt>;</li>
+		<li>图片上传后我们会在<b>24</b>小时内审核完毕更新新照;</li>
+		<li>版权问题<b>oR</b>意见反馈请联系我们;</li>
+		<li>所有照片来自校内网<b>&</b>用户上传;</li>
+		<li>请勿恶意上传<b>OR</b>重复上传;</li>
+	</ul>
+	</div>
+
+
+</body>
+</html>
+
+
