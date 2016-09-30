@@ -5,7 +5,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	outline: 0;
 }
 body {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 微软雅黑, "Open Sans", "Microsoft YaHei",sans-serif ;
 	overflow-x: hidden;
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
@@ -22,9 +22,31 @@ li {
 }
 
 
-
-
-
+/*local_wrapper--------------------------------------------*/
+.main{
+	background-color: #fff;
+	overflow: hidden;
+}
+/*revealright----------------------------------------------------*/
+.menu-wrapper{
+	display: none;
+	width: 100%;
+    height: 100%;
+	position: absolute;
+	z-index: 9999;
+	background-color: #fff;
+	overflow: hidden;
+}
+.icon_close{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	font-size: 14px;
+}
+.icon_close:after{
+    content: "\ea0f";
+	color: rgba(68, 68, 68, 0.78);
+}
 /*home_img-------------------------------------------------*/
 .home_img{
 	position: fixed;
@@ -55,8 +77,7 @@ li {
 	line-height:1.8em;
 }
 .flatbtn i{
-	font-size: 1em;
-	width: 1em;
+    font-size: 20px;
 	margin: 0;
 	text-align: center;
 	color: #444;
@@ -71,15 +92,15 @@ li {
 	display: none;
 	width: 30%;
 	border: 0;
-	right: 5px;
+	right: 0;
 	top: 45px;
 	overflow: hidden;
 	z-index: 999;
 	background: #ffffff;
-	border-radius: 0 0 0.25em 0.25em;
+	border-radius: 0 0 0.2em 0.2em;
 }
 #nav p{
-	padding: 10px;
+	padding: 0.8em 0 0.801em 0;
 	text-align: center;
 	font-size: 0.78rem;
 }
@@ -87,13 +108,19 @@ li {
 	font-size:1em;
 	padding-right:2px;
 }
-#nav p:nth-child(1){
+#nav p:nth-child(1),p:nth-child(2){
 	border-bottom: 1px solid #bbb;
 }
-.icon_se:after{
+#nav p:nth-child(1){
+	padding-right: 1em;
+}
+.icon_ho i:after{
+	content: "\e904";
+}
+.icon_se i:after{
 	content: "\e986";
 }
-.icon_up:after{
+.icon_up i:after{
 	content: "\e914";
 }
 /*head---------------------------------------------------*/
@@ -115,7 +142,7 @@ li {
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background: rgba(0,0,0,0.6);
+	background: rgba(0,0,0,1);
 	display: none;
 	-webkit-animation: overlaymove 300ms linear ;
 	animation: overlaymove 300ms linear ;
@@ -247,26 +274,34 @@ input::-webkit-search-cancel-button {display: none;}
 .tab-active{
 	color: #333;
 }
-.tab-active:after{
-	content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: #ffeb3b;
-    width: 90%;
-    height: 2px;
+/*.tab-active:after{*/
+	/*content: '';*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*background: #ffeb3b;*/
+    /*width: 90%;*/
+    /*height: 2px;*/
 
+/*}*/
+.tab-hd-title{
+	position: relative;
+	width: 40%;
+	line-height: 40px;
+	font-size:1rem;
 }
 .tab-hd-con{
 	position: relative;
-	width: 50%;
+	float: left;
+	width: 30%;
 	font-size:1rem;
 	line-height: 40px;
 	padding-bottom: 0.2em;
-	float: left;
 	transition: all 50ms;
 }
-
+#tca{
+	float: right;
+}
 /*widget-photos---------------------------------------------------rgb(249, 241, 238)*/
 .widget-photos {
     background:#e9eae5;/* rgb(241, 180, 158);*/
@@ -300,14 +335,14 @@ input::-webkit-search-cancel-button {display: none;}
    		margin: 2% 2% 3% 3%;
    		padding: 5% 2% 5% 2%;
   		float: none; */
-	box-shadow:0 10px 20px -4px rgba(0,0,0,0.6);
 	width: 94%;
-	margin: 2% 2% 3% 3%;
+	margin: 3% 4% 3% 3%;
 	float: none;
 
 }
 .list_s img{
-
+	max-width: 100%;
+	/*padding: 0 4% 0 4%;*/
 }
 
 .i_img{
@@ -319,7 +354,6 @@ input::-webkit-search-cancel-button {display: none;}
 }
 .i_img::after{
     content: "";
-    border: 1px solid rgba(0, 0, 0, .1);
     display: block;
     height: 100%;
     left: 0;
@@ -329,15 +363,12 @@ input::-webkit-search-cancel-button {display: none;}
 }
 
 .img-name {
-	position: absolute;
 	text-align: left;
 	z-index: 10;
 	font-family: dosis,"HelveticaNeue-CondensedBold","trebuchet ms",sans-serif;
 	/*letter-spacing: 0.1em;*/
 	font-size: 0.9em;
-	bottom: 30%;
-	left: -0.5em;
-	font-weight: normal;
+	font-weight:700;
 	color:#31312f;
 }
 
@@ -412,7 +443,10 @@ input::-webkit-search-cancel-button {display: none;}
 
 
 
-@media screen and (max-width: 360px){
+@media screen and (max-width: 320px){
+	#nav p{
+		padding: 0.5em 0 0.501em 0;
+	}
 }
 @media screen and (min-width: 370px) and (max-width: 440px){
 	.gtop {
@@ -420,8 +454,7 @@ input::-webkit-search-cancel-button {display: none;}
 	}
 }
 @media screen and (max-width: 845px) and (min-width: 740px){
-	   .widget-photos li { 
-	   	width: 16.285714%;
+	   .widget-photos li {
 	   	min-height: 90px;
 	   }
 	   .main{
@@ -456,7 +489,7 @@ input::-webkit-search-cancel-button {display: none;}
 	font-style: normal;
 }
 
-[class^="#close-nav i"],i:after,.plus:before,.back_link:after,.icon_se:after,.icon_up:after {
+i[class|="icon"],i:after,i:before,.back_link:after {
 	/* use !important to prevent issues with browser extensions that change fonts */
 	font-family: 'icomoon' !important;
 	speak: none;

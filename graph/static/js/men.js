@@ -2,6 +2,19 @@ window.onload = function () {
     new TabSwitch('tab');
 
 
+//wrapper
+    $(".icon_se").click(function () {
+       $('.menu-wrapper').show(0,function () {
+           $('.main').hide();
+           $('#nav').hide();
+       });
+    });
+    $('.icon_close').click(function () {
+        $(".menu-wrapper").hide();
+        $('.main').show();
+    });
+
+
 //home_img
     var home_img = document.createElement('img');
     home_img.src = "../static/images/home_img.jpg";
@@ -27,11 +40,8 @@ window.onload = function () {
 
 //flatbtn
     $('.flatbtn').click(function () {
-       $('#nav').toggle();
+       $('#nav').slideToggle(200);
     });
-
-
-
 
 
     // $('.iload').height($('.iload').width()-10);
@@ -59,35 +69,16 @@ window.onload = function () {
 
 
 //lazy
-    $(function () {
         $("img.lazy").lazyload({
             event: "scrollstop",
             effect: "fadeIn",
-            skip_invisible: true,
+            skip_invisible: true
         });
-    });
 
 //list grid
-    (function () {
-         // function animate(item, x, y, index) {
-         //     dynamics.animate(item, {
-         //         translateX: x,
-         //         translateY: y,
-         //         opacity: 1
-         //     }, {
-         //         type: dynamics.spring,
-         //         duration: 800,
-         //         frequency: 150,
-         //         delay: 100
-         //     });
-         // }
-
-
          window.addEventListener('resize', function () {
              minigrid('.grid', '.grid-item',6);
          });
-     })();
-
 
 //totop
     $(this).scroll(function () {
@@ -153,7 +144,8 @@ window.onload = function () {
                     },
                     error:function () {
                         $('.bot').show(function () {
-                            $(this).html("以到底！")
+                            $(this).html("以到底！");
+                            return false;
                         });
                     }
                 });
@@ -161,26 +153,29 @@ window.onload = function () {
         });
 
 
-    $('.tca').one('click',function () {
+    $('#tca').one('click',function () {
         $.ajax({
             type: "GET",
             url: "/ajaxindex/?page=1" ,
             dataType: "html",
             timeout: 2000,
             cache: false,
+            beforeSend:function () {
+                $('.list').html(123);
+            },
             success:function (data) {
                 $('.list').html(data);
-                minigrid('.grid', '.grid-item',6);
-                $(function () {
+                    setTimeout(function () {
+                        minigrid('.grid', '.grid-item',6);
+                    },300);
                     $("img.lazy").lazyload({
                         event: "scrollstop",
                         effect: "fadeIn",
                         skip_invisible: true
                     });
-                });
             }
-        })
-    })
+        });
+    });
 
 
 
@@ -210,6 +205,7 @@ TabSwitch.prototype.fnBtn = function (oBtn) {
     }
     $(oBtn).addClass("tab-active");
     this.aDiv[oBtn.index].style.display = 'block';
+    $('.tab-hd-title').html($('.tab-active').attr("title"));
 };
 
 //Cookie
@@ -237,7 +233,7 @@ function GetCookie(c_name) {
 
 //Andstep
 function Andstep(Aid,url,Classname,zc) {
-    var Ocai = document.getElementsByClassName(Aid);
+    var Ocai = document.getElementsByClassName(zc);
     for (var i = 1; i <= Ocai.length; i++) {
         $(Aid + [i]).click(function () {
             var tt = parseInt($(this).next().html());

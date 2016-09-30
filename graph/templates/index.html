@@ -5,19 +5,31 @@
 	<meta charset="UTF-8">
 	<title>ITM</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<script type="text/javascript" src="{% static "js/jquery-3.1.0.js"%}"></script>
-	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
 	<link rel="stylesheet" type="text/css" href="{% static "css/men.css"%}">
 	<link rel="stylesheet" type="text/css" href="{% static "css/jquery.bxslider.css"%}">
-	<script type="text/javascript" src="{% static "js/men.js"%}"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.js"></script>
-	
 </head>
-	<script type="text/javascript" src="{% static "js/jquery.bxslider.js" %}"></script>
-	<script type="text/javascript" src="{% static "js/jquery.lazyload.js" %}"></script>
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 	<script src="{% static "js/dynamics.js" %}"></script>
 	<script src="{% static "js/minigrid.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/men.js"%}"></script>
+	<script type="text/javascript" src="{% static "js/jquery.lazyload.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/jquery.bxslider.js" %}"></script>
 <body >
+
+<section class="menu-wrapper">
+	<div id="menus_header" class="auto">
+		<div id="seracn">
+			<form action="/search" method="get" class="ks">
+				<input type="search" class="keywork" name="user_search" placeholder="输入班级或姓名">
+				<input type="submit" value="" class="btn" >
+			</form>
+		</div>
+	</div>
+	<i class="icon_close"></i>
+</section>
+
+
+
 <div class="main">
 	
 	
@@ -36,18 +48,14 @@
 	</div>
 
 	<nav id="nav" role="navigation">
-			<p><i class="icon_se"></i>搜索美照</p>
-			<p><i class="icon_up"></i>上传美照</p>
+			<p class="icon_ho"><a href="/"><i></i>Home</a></p>
+			<p class="icon_se"><i></i>搜索美照</p>
+			<p class="icon_up"><i></i>上传美照</p>
 		</a>
 	</nav>
-	<!--<div id="menus_header" class="auto">-->
-		<!--<div id="seracn">-->
-			<!--<form action="/search" method="get" class="ks">-->
-				<!--<input type="search" class="keywork" name="user_search" placeholder="输入班级或姓名">-->
-				<!--<input type="submit" value="" class="btn" >-->
-			<!--</form>-->
-		<!--</div>-->
-	<!--</div>-->
+
+
+
 
 
 	<div class="cover" >
@@ -76,8 +84,9 @@
 
 <div id="tab">
         <ul id="tab-hd">
-            <ol class="tab-hd-con tab-active">爆赞榜</ol>
-            <ol class="tab-hd-con tca ">最新</ol>
+            <ol class="tab-hd-con tab-active" title="爆赞榜"> < </ol>
+			<span class="tab-hd-title">爆赞榜</span>
+            <ol class="tab-hd-con" id="tca" title="最新"> > </ol>
         </ul>
 
 
@@ -89,25 +98,24 @@
 			{% if x.username %}
 
 			<li class="">
-
+				<h3 class="img-name">{{ x.kap }}{{ x.C_lass }} {{ x.username }}</h3>
 				<a>
 					<img  id="zimg{{ x.id }}" class="iload lazy " data-original="{{ x.headImg }}" src="{{ x.headImg }}"></img>
-					<h3 class="img-name">{{ x.kap }}{{ x.C_lass }} {{ x.username }}</h3>
 				</a>
 				{% endif %}
 				{% if x.index %}
 
-				<!--<div class="Ans">-->
-				<!--<a>-->
-				<!--<input id="zan{{ x.index }}" type="submit" class="zan" name="zan" value=""/>-->
-				<!--<tt>{{ x.zan }}</tt>-->
-				<!--</a>-->
+				<nav class="Ans">
+				<a>
+				<input id="zan{{ x.index }}" type="submit" class="zan" name="zan" value=""/>
+				<tt>{{ x.zan }}</tt>
+				</a>
 
-				<!--<a>-->
-				<!--<input id="cai{{ x.index }}" type="submit" class="cai" name="cai" value=""/>-->
-				<!--<tt>{{ x.cai }}</tt>-->
-				<!--</a>-->
-				<!--</div>-->
+				<a>
+				<input id="cai{{ x.index }}" type="submit" class="cai" name="cai" value=""/>
+				<tt>{{ x.cai }}</tt>
+				</a>
+				</nav>
 
 			</li>
 			{% endif %}
@@ -134,7 +142,6 @@
 
 
 
-
 	
 
 </div>
@@ -146,7 +153,7 @@
 		<!--<div class="dtop">-->
 			<!--<a href="#" class="gtop"><i></i></a>-->
 		<!--</div>-->
-	<!--</div>-->
+		<!--</div>-->
 
 
 

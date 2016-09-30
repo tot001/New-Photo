@@ -3,7 +3,9 @@ body{
 }
 
 .back_link{
-	margin: 5px;
+	position: relative;
+	top: 0.6em;
+	left: 0.5em;
 }
 .back_link:after{
 	content:"\ea40";
@@ -95,7 +97,7 @@ body{
 	z-index: 10;
 }
 .plus:before {
-	content: "\e90d";
+	content: "\e914";
 	margin-left: 10%;
 	opacity: 1;
 	font-size:5em ;
