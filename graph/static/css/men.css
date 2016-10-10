@@ -39,8 +39,8 @@ li {
 }
 .icon_close{
 	position: absolute;
-	top: 1em;
-	right: 1em;
+	top: 80%;
+	right: 50%;
 	font-size: 14px;
 }
 .icon_close:after{
@@ -83,7 +83,7 @@ li {
 	color: #444;
 }
 .flatbtn i:after{
-	content: '\e9bd';
+	content: '\e9c1';
 }
 
 /*nav----------------------------------------------------*/
@@ -108,7 +108,7 @@ li {
 	font-size:1em;
 	padding-right:2px;
 }
-#nav p:nth-child(1),p:nth-child(2){
+#nav p:nth-child(1),#nav p:nth-child(2){
 	border-bottom: 1px solid #bbb;
 }
 #nav p:nth-child(1){
@@ -118,15 +118,16 @@ li {
 	content: "\e904";
 }
 .icon_se i:after{
-	content: "\e986";
+	content: "\e98a";
 }
 .icon_up i:after{
-	content: "\e914";
+	content: "\e911";
 }
 /*head---------------------------------------------------*/
 .head{
 	width: 100%;
 	height:45px;
+	z-index: 2;
 	background:rgba(0, 0, 0, 0.03);
 }
 .head-s{
@@ -192,7 +193,7 @@ li {
 	width: 100%;	
 	height: 45px;
     position: relative;
-    margin-top: 3em;
+	margin-top:1.2em;
 }
 .ks {
 	width: 80%;
@@ -206,6 +207,7 @@ li {
 	text-indent: 5px;
 	border: none;
 	color:#525864;
+	background: rgba(255,255,255,0.9);
 	/*	border: 1px solid;
         border-color: #abbce8 #c3cae0 #b9c8ef;
         -webkit-transition: all 0.25s linear;
@@ -219,6 +221,10 @@ li {
 	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 3px #96c7ec;
 	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 3px #96c7ec;
 	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 3px #96c7ec;
+}
+
+.in-key{
+	background: rgba(255,255,255,0.9)url(../images/btn.png) right no-repeat;
 }
 
 #seracn {
@@ -260,9 +266,87 @@ input::-webkit-search-cancel-button {display: none;}
 	color: #fff;
 	background-color: #795548;
 }
+
+/*featured-photo----------------------------------------*/
+.featured-photo{
+	margin: 0.7em auto;
+	width: 100%;
+}
+.feat-hd{
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+/*featured-article--------------------------------------*/
+.featured-article{
+	height: 43px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: relative;
+}
+.art-logo{
+	padding-left: 5px;
+	width: 32%;
+	height: 43px;
+	position: relative;
+}
+.art-logo i{
+	font-size: 1.5em;
+	line-height: 2em;
+	color: #ffeb3b;
+}
+.art-logo ul{
+	position: absolute;
+	top:10px ;
+	left: 30px;
+}
+.art-logo li{
+	font-size: 0.2em;
+	line-height: 1em;
+	font-weight: 700;
+}
+.art-logo span{
+	position: relative;
+	top: 9px;
+	width: 1px;
+	height: 29px;
+	background: #7B7979;
+	float: right;
+}
+.tips{
+	width: 65%;
+	float: right;
+}
+.tips p{
+	padding-left: 5px;
+    color: #1a1a1a;
+	font-size: 15px;
+	height: 18px;
+	line-height: 18px;
+	vertical-align: middle;
+	display: inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 98%;
+}
+
+/*featured-user--------------------------------------*/
+.user-avatar{
+	height: 72px;
+}
+.user-list li{
+	width: 20%;
+	float: right;
+}
+.user-list li img{
+	width: 100%;
+	max-height:72px;
+}
 /*tab---------------------------------------------------*/
-#tab{
-	font-family: "Hiragino Sans GB","Microsoft YaHei","黑体",Helvetica,Arial,Tahoma,sans-serif;
+#tab,.featured-photo,.featutred-user{
+	/*font-family: "Hiragino Sans GB","Microsoft YaHei","黑体",Helvetica,Arial,Tahoma,sans-serif;*/
+	font-family: "Helvetica Neue","Helvetica","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo","ＭＳ Ｐゴシック",arial,sans-serif;
 }
 #tab-hd{
 	width: 100%;
@@ -271,40 +355,41 @@ input::-webkit-search-cancel-button {display: none;}
 	text-align: center;
 	color: #5a5a5a;
 }
-.tab-active{
+.tab-active,.featured-photo{
 	color: #333;
 }
-/*.tab-active:after{*/
-	/*content: '';*/
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*background: #ffeb3b;*/
-    /*width: 90%;*/
-    /*height: 2px;*/
+.tab-active:after{
+	content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    background: #ffeb3b;
+    width: 90%;
+    height: 2px;
 
-/*}*/
-.tab-hd-title{
-	position: relative;
-	width: 40%;
-	line-height: 40px;
-	font-size:1rem;
 }
 .tab-hd-con{
 	position: relative;
 	float: left;
-	width: 30%;
-	font-size:1rem;
+	width: 50%;
+	font-size:1.1rem;
 	line-height: 40px;
 	padding-bottom: 0.2em;
 	transition: all 50ms;
 }
-#tca{
-	float: right;
+.icon_king:after{
+	content: '\e903';
+	font-size: 1.7rem;
+	color: #ffeb3b;
+}
+.icon_hot:after{
+	content: '\e900';
+	font-size: 1.7rem;
+	color: #cc6666;
 }
 /*widget-photos---------------------------------------------------rgb(249, 241, 238)*/
 .widget-photos {
-    background:#e9eae5;/* rgb(241, 180, 158);*/
+	background:#e9eae5; rgb(241, 180, 158);
 }
 .list,.list_s{
   	overflow: hidden;
@@ -338,7 +423,8 @@ input::-webkit-search-cancel-button {display: none;}
 	width: 94%;
 	margin: 3% 4% 3% 3%;
 	float: none;
-
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+	border-radius: 6px;
 }
 .list_s img{
 	max-width: 100%;
@@ -363,30 +449,43 @@ input::-webkit-search-cancel-button {display: none;}
 }
 
 .img-name {
+	width:50%;
 	text-align: left;
 	z-index: 10;
-	font-family: dosis,"HelveticaNeue-CondensedBold","trebuchet ms",sans-serif;
-	/*letter-spacing: 0.1em;*/
-	font-size: 0.9em;
+	padding: 0.9rem 0.9rem 0 0.9rem;
+	/*font-family: dosis,"HelveticaNeue-CondensedBold","trebuchet ms",sans-serif;
+	letter-spacing: 0.1em;*/
+	font-size: 1rem;
+	line-height: 1rem;
 	font-weight:700;
 	color:#31312f;
 }
-
-.img-name , .Ans{
-	margin: 0.6em 0 0.6em 1.5em;
-	margin-left: 5%;
+.img-follow{
+	float: right;
+	border: none;
+	padding: 5px 6px;
+	border-radius: 4px;
+	background: #ffef62;
+	margin: 0.7em;
+}
+.img-follow span{
+	font-size: 1rem;
+	line-height: 1rem;
+	font-weight: 700;
 }
 /*Ans-----------------------------------------------------------*/
 .Ans{
     position: relative;
-	margin-bottom: 0.5em;
+	padding: 0.9rem;
 }
 
 .zan{
-	width: 18px;
-	height: 18px;
+	width: 20px;
+	height: 20px;
 	border:none;
 	background: url(../images/zan.png) center no-repeat;
+	position: relative;
+	top:3px;
 }
 .cai{
 	width: 18px;
@@ -394,7 +493,53 @@ input::-webkit-search-cancel-button {display: none;}
 	border:none;
 	background: url(../images/cai.png) center no-repeat;
 }
-
+.Ans-share{
+	float: right;
+	width: 16%;
+}
+.Ans-share button{
+	border: none;
+	padding: 3px 6px;
+	border-radius: 4px;
+	background: #fdd59f;
+}
+.icon_comments:after{
+	content: '\e972';
+}
+/*Ans-------addCommentForm----------------*/
+.addCommentForm{
+	display: none;
+}
+.Ans-comments{
+	padding-top: 10px;
+}
+.comments{
+	background: #efefef;
+	font-size: 1rem;
+	width: 100%;
+	max-width: 80%;
+	border: 0;
+	color: #555;
+	border-radius: 6px;
+	min-height: 40px;
+	height: 40px;
+	padding: 12px 10px 10px 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.comments-btn{
+	border-radius: 5px !important;
+	padding: 9px 12px;
+	height: 36px;
+	font-weight: 700;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	text-shadow: 0 0 0 !important;
+	background: #ebebeb !important;
+	border: 1px solid #ddd !important;
+	color: #aaa !important;
+	cursor: default;
+}
 /*food---------------------------------------------------*/
 .food{
 	width: 100%;
@@ -447,6 +592,12 @@ input::-webkit-search-cancel-button {display: none;}
 	#nav p{
 		padding: 0.5em 0 0.501em 0;
 	}
+	.tips{
+		width: 61%;
+	}
+	.art-logo{
+		width: 35%;
+	}
 }
 @media screen and (min-width: 370px) and (max-width: 440px){
 	.gtop {
@@ -490,7 +641,6 @@ input::-webkit-search-cancel-button {display: none;}
 }
 
 i[class|="icon"],i:after,i:before,.back_link:after {
-	/* use !important to prevent issues with browser extensions that change fonts */
 	font-family: 'icomoon' !important;
 	speak: none;
 	font-style: normal;
@@ -498,8 +648,18 @@ i[class|="icon"],i:after,i:before,.back_link:after {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
-
-	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+.cover-img img{
+	width: 100%;
+}
+.feat-wrapper{
+	display: flex;
 }

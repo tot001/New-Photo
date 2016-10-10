@@ -9,7 +9,7 @@ K_A_P = (
 
 
 class User(models.Model):
-    headImg = models.ImageField(upload_to='./upload/')
+    headImg = models.ImageField(upload_to='./Upload/')
     username = models.CharField(max_length=30, blank=False)
     kap = models.CharField(max_length=30, blank=False)
     C_lass = models.CharField(max_length=30, blank=False)

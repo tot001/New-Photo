@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graph',
+    'user',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -131,5 +132,5 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-MEDIA_ROOT = '/website/Photo/Media'
-MEDIA_URL='/Media/'
+MEDIA_ROOT = '/website/Photo'
+MEDIA_URL='/Photo/'

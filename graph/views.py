@@ -25,7 +25,7 @@ def Upload(request):
             user.kap = kap
             user.C_lass = C_lass
             user.save()
-            return HttpResponse('ok')
+            return render(request, 'ok.html')
     else:
         db = UserForm()
     return render(request, 'upload.html', {'db': db})

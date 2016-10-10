@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        #con_div {
+            width: 50%;
+            margin: 50% 25% 0 25%;
+            color: #7B7979;
+            font-size: 0.89em;
+        }
+
+        #con_p {
+            width: 60%;
+            margin: 0 20% 0 20%;
+        }
+    </style>
+</head>
+<body>
+<div id="con_div">
+    <p id="con_p">3秒后跳转...</p>
+</div>
+<script type="text/javascript">
+    var c = 4;
+    var t;
+    var Op = document.getElementById('con_p');
+    function timedCount() {
+        if (c != 0) {
+            c = c - 1;
+            t = setTimeout("timedCount()", 1000);
+        }
+        else {
+            clearTimeout(t);
+            window.location = "/"
+        }
+        return Op.innerHTML = c + "秒后跳转...";
+    }
+    timedCount();
+</script>
+</body>
+</html>

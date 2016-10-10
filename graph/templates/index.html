@@ -6,14 +6,16 @@
 	<title>ITM</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="{% static "css/men.css"%}">
-	<link rel="stylesheet" type="text/css" href="{% static "css/jquery.bxslider.css"%}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/load.css"%}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/swiper.min.css"%}">
 </head>
 	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script src="{% static "js/jquery-3.1.1.min.js" %}"></script>
 	<script src="{% static "js/dynamics.js" %}"></script>
 	<script src="{% static "js/minigrid.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/men.js"%}"></script>
 	<script type="text/javascript" src="{% static "js/jquery.lazyload.js" %}"></script>
-	<script type="text/javascript" src="{% static "js/jquery.bxslider.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/swiper.min.js" %}"></script>
 <body >
 
 <section class="menu-wrapper">
@@ -39,6 +41,13 @@
 
 	<div class="head">
 		<div class="head-s">
+			<div id="menus_header in-header" class="auto">
+				<div id="seracn">
+					<form class="ks">
+						<input type="search" class="keywork in-key" name="user_search" placeholder="输入班级或姓名">
+					</form>
+				</div>
+			</div>
 			<div id="unfold">
 				<a class="flatbtn" href="#">
 					<i></i>
@@ -50,7 +59,7 @@
 	<nav id="nav" role="navigation">
 			<p class="icon_ho"><a href="/"><i></i>Home</a></p>
 			<p class="icon_se"><i></i>搜索美照</p>
-			<p class="icon_up"><i></i>上传美照</p>
+			<p class="icon_up"><i></i>上传</p>
 		</a>
 	</nav>
 
@@ -58,64 +67,125 @@
 
 
 
-	<div class="cover" >
-		<div class="slider1" >
-			<div class="slide"><a href="/upload"><img src="static/images/banner2.jpg" alt=""></a></div>
-			<div class="slide"><a href="check"><img src="static/images/banner1.png" alt=""></a></div>
-			<div class="slide"><img src="static/images/banner1.png" alt=""></div>
+	<div class="cover swiper-container" >
+		<div class="swiper-wrapper" >
+			<div class="swiper-slide cover-img"><img src="static/images/banner2.jpg" alt=""></div>
+			<div class="swiper-slide cover-img"><img src="static/images/banner2.jpg" alt=""></div>
+			<div class="swiper-slide cover-img"><img src="static/images/banner2.jpg" alt=""></div>
 		</div>
 	</div>
 	<script>
-	$('.slider1').bxSlider({
-        slideWidth: $('.cover').width(),
-        minSlides: 1,
-        maxSlides: 1,
-        slideMargin: 1,
-		hideControlOnEnd: true,
-		adaptiveHeight: true,
-		startSlides: 0
-    });
+		var mySwiper = new Swiper('.swiper-container',{
+			loop: true,
+			initialSlide :2,
+			autoplay: 3000,
+			spaceBetween: 5
+		});
 	</script>
 
+	<div class="featured-photo">
+		<div class="feat-hd">
+			<i></i>本期精选
+		</div>
+		<div class="feat-photo" >
+			<div class="feat-wrapper" >
+			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
+			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
+			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
+			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
+			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
+			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var mySwiper = new Swiper('.feat-photo',{
+			wrapperClass : 'feat-wrapper',
+			slideClass : 'feat-slide',
+			loop: false,
+			initialSlide :1,
+			slidesPerView : 'auto',
+			centeredSlides: true,
+			paginationClickable: true,
+			spaceBetween: 10,
+			loopedSlides :3
+		});
+	</script>
 
+	<div class="featured-article">
+		<div class="tips">
+			<p>读书</p>
+			<p>看报,看跳</p>
+		</div>
+		<nav class="art-logo">
+			<i>R</i>
+			<ul>
+				<li>ecommended</li>
+				<li>eading</li>
+			</ul>
+			<span></span>
+		</nav>
+	</div>
 
-
-
+	<div class="featutred-user">
+		<div class="feat-hd">
+			精选用户
+		</div>
+		<nav class="user-avatar">
+			<ul class="user-list">
+				<li><img src="static/images/user.jpg" alt=""></li>
+				<li><img src="static/images/user1.jpg" alt=""></li>
+				<li><img src="static/images/user2.jpg" alt=""></li>
+				<li><img src="static/images/user3.jpg" alt=""></li>
+				<li><img src="static/images/user4.jpg" alt=""></li>
+			</ul>
+		</nav>
+	</div>
 
 <div id="tab">
         <ul id="tab-hd">
-            <ol class="tab-hd-con tab-active" title="爆赞榜"> < </ol>
-			<span class="tab-hd-title">爆赞榜</span>
-            <ol class="tab-hd-con" id="tca" title="最新"> > </ol>
+            <ol class="tab-hd-con tab-active" ><i class="icon_king"></i> 爆赞榜 </ol>
+            <ol class="tab-hd-con" id="tca"><i class="icon_hot"></i> 最新 </ol>
         </ul>
 
 
-
-	<div class="widget-photos" >
+	<section class="widget-photos" >
 		<ul class="list_s">
 			{% for i in l3 %}
 			{% for x in i %}
 			{% if x.username %}
 
 			<li class="">
-				<h3 class="img-name">{{ x.kap }}{{ x.C_lass }} {{ x.username }}</h3>
+				<!--{{ x.kap }}{{ x.C_lass }}-->
+				<div>
+					<button class="img-follow"><span>Follow</span></button>
+					<h3 class="img-name"> {{ x.username }}</h3>
+				</div>
 				<a>
 					<img  id="zimg{{ x.id }}" class="iload lazy " data-original="{{ x.headImg }}" src="{{ x.headImg }}"></img>
 				</a>
+
 				{% endif %}
 				{% if x.index %}
 
 				<nav class="Ans">
-				<a>
-				<input id="zan{{ x.index }}" type="submit" class="zan" name="zan" value=""/>
-				<tt>{{ x.zan }}</tt>
-				</a>
+					<a>
+						<input id="zan{{ x.index }}" type="submit" class="zan" name="zan" value=""/>
+						<tt>{{ x.zan }}</tt>
+					</a>
 
-				<a>
-				<input id="cai{{ x.index }}" type="submit" class="cai" name="cai" value=""/>
-				<tt>{{ x.cai }}</tt>
-				</a>
-				</nav>
+					<i class="icon_comments" id="icon_comments{{ x.index }}"></i>
+
+					<div class="Ans-share">
+						<button>Share</button>
+					</div>
+
+					<from class="addCommentForm" id="addCommentForm{{ x.index }}">
+						<div class="Ans-comments">
+							<textarea class="comments" cols="30" rows="10" placeholder="Add a comment..."></textarea>
+							<button class="comments-btn">Comment</button>
+						</div>
+					</from>
 
 			</li>
 			{% endif %}
@@ -123,16 +193,23 @@
 			{% endfor %}
 			{% endfor %}
 		</ul>
-	</div>
+	</section>
 
-	<div class="widget-photos" id="wp" style="display: none">
+	<section class="widget-photos" id="wp" style="display: none">
 		<ul class="list grid">
 
         </ul>
 
 		<div class="bot"></div>
-	</div>
+	</section>
 
+	<div class="load">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
 
 	<div id="lean_overlay" >
 		<div class="car_view">

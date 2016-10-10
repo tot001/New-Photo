@@ -1,0 +1,34 @@
+{% load static %}
+
+{% for i in l3 %}
+{% for x in i %}
+{% if x.username %}
+
+<li class="grid-item">
+    <!--<h3 class="img-name">{{ x.kap }}{{ x.C_lass }} {{ x.username }}</h3>-->
+    <a>
+        <img  id="zimg{{ x.id }}" class="iload lazy i_img" data-original="{{ x.headImg }}" src="{{ x.headImg }}"></img>
+    </a>
+    {% endif %}
+    {% if x.index %}
+
+    <!--<div class="Ans">-->
+    <!--<a>-->
+    <!--<input id="zan{{ x.index }}" type="submit" class="zan" name="zan" value=""/>-->
+    <!--<tt>{{ x.zan }}</tt>-->
+    <!--</a>-->
+
+    <!--<a>-->
+    <!--<input id="cai{{ x.index }}" type="submit" class="cai" name="cai" value=""/>-->
+    <!--<tt>{{ x.cai }}</tt>-->
+    <!--</a>-->
+    <!--</div>-->
+
+</li>
+{% endif %}
+
+{% endfor %}
+{% endfor %}
+
+
+

@@ -18,6 +18,7 @@ from django.conf.urls import url
 
 from django.conf.urls.static import static
 from graph import views as view
+from user import views as view2
 from photo import settings
 
 urlpatterns = [
@@ -32,4 +33,7 @@ urlpatterns = [
                   url(r'^in/', view.inside_view),
                   url(r'^hot/', view.hot),
                   url(r'^ajaxindex/', view.ajaxindex),
+                  url(r'^signup/',view2.SignUp),
+                  url(r'^signin/',view2.SignIn),
+                  url(r'^index/',view2.index),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

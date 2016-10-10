@@ -8,7 +8,7 @@ body{
 	left: 0.5em;
 }
 .back_link:after{
-	content:"\ea40";
+	content:"\ea44";
 	color: #444444;
 }
 /*Atlas_title--------------------------------------------------------*/
@@ -97,7 +97,7 @@ body{
 	z-index: 10;
 }
 .plus:before {
-	content: "\e914";
+	content: "\e911";
 	margin-left: 10%;
 	opacity: 1;
 	font-size:5em ;

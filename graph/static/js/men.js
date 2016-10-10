@@ -1,9 +1,9 @@
-window.onload = function () {
+ window.onload = function () {
     new TabSwitch('tab');
 
 
 //wrapper
-    $(".icon_se").click(function () {
+    $(".keywork").click(function () {
        $('.menu-wrapper').show(0,function () {
            $('.main').hide();
            $('#nav').hide();
@@ -38,6 +38,7 @@ window.onload = function () {
     }
 
 
+
 //flatbtn
     $('.flatbtn').click(function () {
        $('#nav').slideToggle(200);
@@ -51,9 +52,9 @@ window.onload = function () {
     $('.bx-pager').css('top', bx_top);
 
 //zan&cai
-    Andstep("#cai", "cai2.png",".cai",'cai');
-    Andstep('#zan', "zan2.png",".zan",'zan');
-
+    Andstep("zan","zan2.png");
+//lazy
+    ImgLazy(200);
 
 //lean_overlay
     $('.lazy').click(function () {
@@ -67,13 +68,6 @@ window.onload = function () {
         $(this).toggle();
     });
 
-
-//lazy
-        $("img.lazy").lazyload({
-            event: "scrollstop",
-            effect: "fadeIn",
-            skip_invisible: true
-        });
 
 //list grid
          window.addEventListener('resize', function () {
@@ -96,10 +90,13 @@ window.onload = function () {
         }
     });
 
-
-
-
-
+//comments
+    $(".icon_comments").click(function () {
+        var id = $(this).attr('id');
+        var str=id.match(/\d+/g);
+        var addCommentForm=$('#addCommentForm'+str);
+        $('.Ans').find(addCommentForm).toggle(10);
+    });
 
 //ajax
     var page=1;
@@ -131,7 +128,7 @@ window.onload = function () {
                     $("#car_img").attr('src', img);
                 });
             }else{
-                $.ajax({
+             var ajaxGet=$.ajax({
                     type:"GET",
                     url:"/ajaxindex/?page="+page,
                     dataType:"html",
@@ -142,13 +139,19 @@ window.onload = function () {
                         $('.list').html(list_+data);
                         minigrid('.grid', '.grid-item',6);
                     },
-                    error:function () {
-                        $('.bot').show(function () {
-                            $(this).html("以到底！");
-                            return false;
-                        });
+                    error:function (XMLHttpRequest,textStatus,errorThrown) {
+                        try{
+                            if(XMLHttpRequest.status===0) throw "END"
+                        }
+                        catch (error){
+                            $('.bot').show(function () {
+                                $(this).html(error);
+                                return false;
+                            });
+                        }
                     }
                 });
+                ajaxGet.abort();
             }
         });
 
@@ -156,23 +159,20 @@ window.onload = function () {
     $('#tca').one('click',function () {
         $.ajax({
             type: "GET",
-            url: "/ajaxindex/?page=1" ,
+            url: "/hot/?page=1" ,
             dataType: "html",
             timeout: 2000,
             cache: false,
             beforeSend:function () {
-                $('.list').html(123);
+                $('.load').fadeIn(100);
             },
             success:function (data) {
-                $('.list').html(data);
+                $('.load').fadeOut(700);
                     setTimeout(function () {
+                        $('.list').html(data);
                         minigrid('.grid', '.grid-item',6);
-                    },300);
-                    $("img.lazy").lazyload({
-                        event: "scrollstop",
-                        effect: "fadeIn",
-                        skip_invisible: true
-                    });
+                        ImgLazy(0);
+                    },1000);
             }
         });
     });
@@ -189,7 +189,7 @@ function TabSwitch(id) {
     var _this = this;
     var oDiv = document.getElementById(id);
     this.aBtn = oDiv.getElementsByTagName('ol');
-    this.aDiv = oDiv.getElementsByTagName('div');
+    this.aSection = oDiv.getElementsByTagName('section');
 
     for (var i = 0; i < this.aBtn.length; i++) {
         this.aBtn[i].index = i;
@@ -201,11 +201,10 @@ function TabSwitch(id) {
 TabSwitch.prototype.fnBtn = function (oBtn) {
     for (var i = 0; i < this.aBtn.length; i++) {
         this.aBtn[i].className = 'tab-hd-con';
-        this.aDiv[i].style.display = "none";
+        this.aSection[i].style.display = "none";
     }
     $(oBtn).addClass("tab-active");
-    this.aDiv[oBtn.index].style.display = 'block';
-    $('.tab-hd-title').html($('.tab-active').attr("title"));
+    this.aSection[oBtn.index].style.display = 'block';
 };
 
 //Cookie
@@ -232,10 +231,10 @@ function GetCookie(c_name) {
 }
 
 //Andstep
-function Andstep(Aid,url,Classname,zc) {
-    var Ocai = document.getElementsByClassName(zc);
-    for (var i = 1; i <= Ocai.length; i++) {
-        $(Aid + [i]).click(function () {
+function Andstep(Classname,url) {
+    var OClassname = document.getElementsByClassName(Classname);
+    for (var i = 1; i <= OClassname.length; i++) {
+        $(OClassname [i]).click(function () {
             var tt = parseInt($(this).next().html());
             $(this).next().html(tt + 1);
             $(this).css('background', function () {
@@ -244,15 +243,25 @@ function Andstep(Aid,url,Classname,zc) {
             $(this).unbind('click');
         });
     }
-    $(Classname).click(function () {
+    $("."+ Classname).click(function () {
         var id = $(this).attr('id');
         var tt = $('#' + id).next().html();
         var str=id.match(/\d+/g);
-        $.get("/"+zc+"/?id=" + str + "&count="+tt+"")
+        $.get("/"+Classname+"/?id=" + str + "&count="+tt+"")
     })
 }
 
 
+//lazy
+function ImgLazy(speed) {
+    $("img.lazy").lazyload({
+        event: "scroll",
+        effect: "fadeIn",
+        threshold: 200,
+        effectspeed:speed,
+        skip_invisible: true
+    });
+}
 
 
 
