@@ -19,17 +19,9 @@
 <body >
 
 <section class="menu-wrapper">
-	<div id="menus_header" class="auto">
-		<div id="seracn">
-			<form action="/search" method="get" class="ks">
-				<input type="search" class="keywork" name="user_search" placeholder="输入班级或姓名">
-				<input type="submit" value="" class="btn" >
-			</form>
-		</div>
-	</div>
 	<i class="icon_close"></i>
 </section>
-
+<div class="menu_overlay"></div>
 
 
 <div class="main">
@@ -43,8 +35,9 @@
 		<div class="head-s">
 			<div id="menus_header in-header" class="auto">
 				<div id="seracn">
-					<form class="ks">
-						<input type="search" class="keywork in-key" name="user_search" placeholder="输入班级或姓名">
+					<form action="/search" method="get" class="ks">
+						<input type="search" class="keywork" name="user_search" placeholder="输入班级或姓名">
+						<input type="submit" value="" class="btn" >
 					</form>
 				</div>
 			</div>
@@ -55,13 +48,6 @@
 			</div>
 		</div>
 	</div>
-
-	<nav id="nav" role="navigation">
-			<p class="icon_ho"><a href="/"><i></i>Home</a></p>
-			<p class="icon_se"><i></i>搜索美照</p>
-			<p class="icon_up"><i></i>上传</p>
-		</a>
-	</nav>
 
 
 
@@ -89,12 +75,10 @@
 		</div>
 		<div class="feat-photo" >
 			<div class="feat-wrapper" >
-			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
-			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
-			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
-			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
-			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
-			<div class="feat-slide"><img src="static/images/user3.jpg" alt=""></div>
+				<div class="feat-slide"><img src="static/images/user6.jpg" alt=""></div>
+				<div class="feat-slide"><img src="static/images/user5.jpg" alt=""></div>
+				<div class="feat-slide"><img src="static/images/user6.jpg" alt=""></div>
+				<div class="feat-slide"><img src="static/images/user5.jpg" alt=""></div>
 			</div>
 		</div>
 	</div>
@@ -102,13 +86,8 @@
 		var mySwiper = new Swiper('.feat-photo',{
 			wrapperClass : 'feat-wrapper',
 			slideClass : 'feat-slide',
-			loop: false,
-			initialSlide :1,
-			slidesPerView : 'auto',
-			centeredSlides: true,
-			paginationClickable: true,
-			spaceBetween: 10,
-			loopedSlides :3
+			slidesPerView: 3,
+			spaceBetween: 10
 		});
 	</script>
 
@@ -133,7 +112,7 @@
 		</div>
 		<nav class="user-avatar">
 			<ul class="user-list">
-				<li><img src="static/images/user.jpg" alt=""></li>
+				<li><img src="static/images/user.jpg" alt=""><p>bang</p></li>
 				<li><img src="static/images/user1.jpg" alt=""></li>
 				<li><img src="static/images/user2.jpg" alt=""></li>
 				<li><img src="static/images/user3.jpg" alt=""></li>
@@ -224,13 +203,6 @@
 </div>
 	
 
-
-	<!--<div class="food">-->
-		<!--<label for="">CopyRight@2016-2017</label>-->
-		<!--<div class="dtop">-->
-			<!--<a href="#" class="gtop"><i></i></a>-->
-		<!--</div>-->
-		<!--</div>-->
 
 
 

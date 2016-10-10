@@ -1,18 +1,21 @@
  window.onload = function () {
     new TabSwitch('tab');
 
+     $('.btn').click(function () {
+         $(".keywork").addClass("in-key");
+         if($('.keywork').val()=="") return false;
+     });
+
 
 //wrapper
-    $(".keywork").click(function () {
-       $('.menu-wrapper').show(0,function () {
-           $('.main').hide();
-           $('#nav').hide();
-       });
-    });
     $('.icon_close').click(function () {
-        $(".menu-wrapper").hide();
-        $('.main').show();
+        $(".menu-wrapper,.menu_overlay").hide();
     });
+
+//flatbtn
+     $('.flatbtn').click(function () {
+         $('.menu-wrapper,.menu_overlay').fadeIn(200);
+     });
 
 
 //home_img
@@ -39,10 +42,6 @@
 
 
 
-//flatbtn
-    $('.flatbtn').click(function () {
-       $('#nav').slideToggle(200);
-    });
 
 
     // $('.iload').height($('.iload').width()-10);
@@ -176,7 +175,6 @@
             }
         });
     });
-
 
 
 };

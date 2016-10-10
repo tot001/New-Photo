@@ -30,9 +30,10 @@ li {
 /*revealright----------------------------------------------------*/
 .menu-wrapper{
 	display: none;
-	width: 100%;
+	width: 80%;
     height: 100%;
-	position: absolute;
+	position: fixed;
+	right: 0;
 	z-index: 9999;
 	background-color: #fff;
 	overflow: hidden;
@@ -86,43 +87,6 @@ li {
 	content: '\e9c1';
 }
 
-/*nav----------------------------------------------------*/
-#nav{
-	position: absolute;
-	display: none;
-	width: 30%;
-	border: 0;
-	right: 0;
-	top: 45px;
-	overflow: hidden;
-	z-index: 999;
-	background: #ffffff;
-	border-radius: 0 0 0.2em 0.2em;
-}
-#nav p{
-	padding: 0.8em 0 0.801em 0;
-	text-align: center;
-	font-size: 0.78rem;
-}
-#nav i{
-	font-size:1em;
-	padding-right:2px;
-}
-#nav p:nth-child(1),#nav p:nth-child(2){
-	border-bottom: 1px solid #bbb;
-}
-#nav p:nth-child(1){
-	padding-right: 1em;
-}
-.icon_ho i:after{
-	content: "\e904";
-}
-.icon_se i:after{
-	content: "\e98a";
-}
-.icon_up i:after{
-	content: "\e911";
-}
 /*head---------------------------------------------------*/
 .head{
 	width: 100%;
@@ -135,16 +99,20 @@ li {
 	position: relative;
 }
 
-/*lean_overlay---------------------------------------------------*/
-#lean_overlay{
+/*lean_overlay------menu_overlay------------------------------------*/
+#lean_overlay,.menu_overlay{
 	position: fixed;
+	display: none;
 	z-index: 100;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
+	background: rgba(0, 0, 0, 0.45);
+}
+
+#lean_overlay{
 	background: rgba(0,0,0,1);
-	display: none;
 	-webkit-animation: overlaymove 300ms linear ;
 	animation: overlaymove 300ms linear ;
 }
@@ -197,17 +165,20 @@ li {
 }
 .ks {
 	width: 80%;
-	padding-top: 0.5em;
-	margin-left: 15%;
+	padding-top: 0.59em;
+	margin-left: 18%;
 }
 .keywork {
 	border-radius: 5px;
 	height: 27px;
-	width: 80%;
+	width: 0%;
 	text-indent: 5px;
 	border: none;
 	color:#525864;
 	background: rgba(255,255,255,0.9);
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 	/*	border: 1px solid;
         border-color: #abbce8 #c3cae0 #b9c8ef;
         -webkit-transition: all 0.25s linear;
@@ -224,7 +195,7 @@ li {
 }
 
 .in-key{
-	background: rgba(255,255,255,0.9)url(../images/btn.png) right no-repeat;
+	width: 80%;
 }
 
 #seracn {
@@ -242,7 +213,7 @@ input::-webkit-search-cancel-button {display: none;}
 	border: 0;
 	text-align: center;
 	position: absolute;
-	right: 18%;
+	right: 15%;
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 5px;
 	color: #fff;
@@ -251,9 +222,9 @@ input::-webkit-search-cancel-button {display: none;}
 	outline:none;
 	color:#525864;
 	border-color:#84c0ee;
-	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 3px #96c7ec;
-	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 3px #96c7ec;
-	box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 3px #96c7ec;
+	-webkit-box-shadow:inset 0 1px 1px rgba(255, 255, 255, 0.01), 0 0 3px #feffff;
+	-moz-box-shadow:inset 0 1px 1px rgba(255, 255, 255, 0.01), 0 0 3px #feffff;
+	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.01), 0 0 3px #feffff;
 }
 #fabu {
 	margin-top: 10px;
@@ -268,8 +239,8 @@ input::-webkit-search-cancel-button {display: none;}
 }
 
 /*featured-photo----------------------------------------*/
-.featured-photo{
-	margin: 0.7em auto;
+.featured-photo,.user-avatar,.featured-article{
+	margin-bottom:40px;
 	width: 100%;
 }
 .feat-hd{
@@ -280,8 +251,6 @@ input::-webkit-search-cancel-button {display: none;}
 /*featured-article--------------------------------------*/
 .featured-article{
 	height: 43px;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	position: relative;
 }
 .art-logo{
@@ -336,15 +305,20 @@ input::-webkit-search-cancel-button {display: none;}
 	height: 72px;
 }
 .user-list li{
-	width: 20%;
-	float: right;
+	width: 18%;
+	float: left;
+	padding-right: 2%;
 }
 .user-list li img{
 	width: 100%;
 	max-height:72px;
 }
+.user-list li p {
+	text-align: center;
+	font-size: smaller;
+}
 /*tab---------------------------------------------------*/
-#tab,.featured-photo,.featutred-user{
+#tab,.featured-photo,.featutred-user,.user-avatar{
 	/*font-family: "Hiragino Sans GB","Microsoft YaHei","黑体",Helvetica,Arial,Tahoma,sans-serif;*/
 	font-family: "Helvetica Neue","Helvetica","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo","ＭＳ Ｐゴシック",arial,sans-serif;
 }
@@ -661,5 +635,13 @@ i[class|="icon"],i:after,i:before,.back_link:after {
 	width: 100%;
 }
 .feat-wrapper{
+	width: 300%;
 	display: flex;
+}
+.feat-slide:nth-child(1){
+	margin-left: 10px;
+}
+.feat-slide img{
+	width: 100%;
+
 }
